@@ -7,9 +7,16 @@ public:
     idarray( );
     ~idarray( );
 
+    // Insert an item into the array
     size_t                      insert( const T& value );
+
+    // Remove item by reference
     bool                        remove( const T& value );
+    // Remove item by ID
     bool                        remove( const size_t& id );
+
+    // Find the ID of an item in the array
+    size_t                      find( const T& value );
 
     T&                          operator[]( const size_t& id );
 
@@ -36,8 +43,12 @@ private:
 
     //-----------------------
 
+    // Will allocate new memory (and copy existing memory if it's valid) of set size, and set _arraySize properly
     void                        allocate( int newSize );
+    // Will double the size of the array, and allocate it
     void                        expand( );
+
+    // Find an empty ID in the array
     size_t                      findEmpty( );
 };
 
@@ -70,12 +81,29 @@ inline size_t idarray<T>::insert( const T & value ) {
 
 template<typename T>
 inline bool idarray<T>::remove( const T & value ) {
-    return false;
+    // Find ID and remove it
+    size_t id = find( value );
+    remove( id );
 }
 
 template<typename T>
 inline bool idarray<T>::remove( const size_t & id ) {
-    return false;
+    if (id > _arraySize)
+
+    // Reset memory at location
+    memset( &_array[id], 0, sizeof( entry ) )
+}
+
+template<typename T>
+inline size_t idarray<T>::find( const T & value ) {
+    entry target( value );
+
+    for (int i=0; i < _arraySize; i++) {
+        if (memcmp( &_array[i], &target, sizeof( entry ) ) == 0)
+            return i;
+    }
+
+    return -1;
 }
 
 template<typename T>

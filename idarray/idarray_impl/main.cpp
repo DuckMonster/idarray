@@ -17,13 +17,21 @@ int main( ) {
     {
         idarray<int> arr;
 
-        for (int i=0; i < 0x0000FFFF; i++)
-            arr.insert( int() );
+        for (int i=0; i < 0x000000FF; i++)
+            arr.insert( i * 2 );
 
-        this_thread::sleep_for( chrono::seconds( 10 ) );
+        while (true) {
+            clock_t startTime = clock( );
+
+            arr.find( 0x000000FF - 1 );
+            cout << double( clock( ) - startTime ) / (double)CLOCKS_PER_SEC << " seconds.\n";
+
+            this_thread::sleep_for( chrono::seconds( 1 ) );
+        }
+
     }
 
-    this_thread::sleep_for( chrono::seconds( 5 ) );
+    cin.get( );
 
     return 0;
 }
