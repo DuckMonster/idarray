@@ -18,6 +18,9 @@ public:
     // Find the ID of an item in the array
     size_t                      find( const T& value );
 
+    // Check if the array contains ID
+    bool                        contains( const size_t& id );
+
     // Returns the number of valid elements in the array
     size_t                      count( );
     // Returns the current size of the array
@@ -54,9 +57,6 @@ private:
 
     // Find an empty ID in the array
     size_t                      findEmpty( );
-
-    // Check if ID is valid
-    bool                        isValid( const size_t& id );
 };
 
 template<typename T>
@@ -85,7 +85,7 @@ inline size_t idarray<T>::insert( const T & value ) {
 
 template<typename T>
 inline bool idarray<T>::remove( const size_t & id ) {
-    if (!isValid( id ))
+    if (!contains( id ))
         return false;
 
     // Reset memory at ID location
@@ -120,7 +120,7 @@ inline size_t idarray<T>::size( ) {
 
 template<typename T>
 inline T & idarray<T>::operator[]( const size_t & id ) {
-    if (!isValid( id ))
+    if (!contains( id ))
         throw std::invalid_argument( "Tried to get invalid ID" );
 
     return _array[id].value;
@@ -167,7 +167,7 @@ inline size_t idarray<T>::findEmpty( ) {
 }
 
 template<typename T>
-inline bool idarray<T>::isValid( const size_t & id ) {
+inline bool idarray<T>::contains( const size_t & id ) {
     // Outside array size
     if (id > _arraySize)
         return false;
