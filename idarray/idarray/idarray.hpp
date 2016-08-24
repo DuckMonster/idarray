@@ -120,7 +120,7 @@ inline size_t idarray<T>::size( ) {
 
 template<typename T>
 inline T & idarray<T>::operator[]( const size_t & id ) {
-    if (isValid( id ))
+    if (!isValid( id ))
         throw std::invalid_argument( "Tried to get invalid ID" );
 
     return _array[id].value;
