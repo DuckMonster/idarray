@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "idarray", "idarray\idarray.
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "idarray_impl", "idarray_impl\idarray_impl.vcxproj", "{96CC6D50-2E39-447E-A202-FDDA336A7CCF}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "idarray_test", "idarray_test\idarray_test.vcxproj", "{877C360E-D6FD-4335-9413-0F37724CF6E2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -31,6 +33,14 @@ Global
 		{96CC6D50-2E39-447E-A202-FDDA336A7CCF}.Release|x64.Build.0 = Release|x64
 		{96CC6D50-2E39-447E-A202-FDDA336A7CCF}.Release|x86.ActiveCfg = Release|Win32
 		{96CC6D50-2E39-447E-A202-FDDA336A7CCF}.Release|x86.Build.0 = Release|Win32
+		{877C360E-D6FD-4335-9413-0F37724CF6E2}.Debug|x64.ActiveCfg = Debug|x64
+		{877C360E-D6FD-4335-9413-0F37724CF6E2}.Debug|x64.Build.0 = Debug|x64
+		{877C360E-D6FD-4335-9413-0F37724CF6E2}.Debug|x86.ActiveCfg = Debug|Win32
+		{877C360E-D6FD-4335-9413-0F37724CF6E2}.Debug|x86.Build.0 = Debug|Win32
+		{877C360E-D6FD-4335-9413-0F37724CF6E2}.Release|x64.ActiveCfg = Release|x64
+		{877C360E-D6FD-4335-9413-0F37724CF6E2}.Release|x64.Build.0 = Release|x64
+		{877C360E-D6FD-4335-9413-0F37724CF6E2}.Release|x86.ActiveCfg = Release|Win32
+		{877C360E-D6FD-4335-9413-0F37724CF6E2}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
